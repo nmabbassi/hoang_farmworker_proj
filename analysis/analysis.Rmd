@@ -8,13 +8,270 @@ output:
     toc_depth: 4
 ---
 
-```{r setup, include=FALSE}
+
+```{r setup, echo=FALSE, warning=FALSE, error=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 source("check_packages.R")
 source("useful_functions.R")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, error = FALSE, warning = FALSE, 
+                      eval = TRUE)
+load("output/merge_data.RData")
+#check for texreg package
+if(!require("texreg")) {
+  install.packages("texreg")
+  library(texreg)
+}
 ```
+
 
 # Introduction
 <a href="#top">Back to top</a>
 
-Use this R Markdown to perform the main analysis for the project. I use this basically as a lab notebook. It contains the main analysis and a variety of sensitivity analysis. The code in this documents serves as a baseline for the eventual tables and figures that will go into the paper. At the same time it will serve as a record of all supplementary analyses performed. 
+Use this R Markdown to perform the main analysis for the project. I use this basically as a lab notebook. 
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, ag_pct, median, na.rm=TRUE),
+                       y=ag_pct))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="Percent Employed in Agricultural Industry",
+       title="Percent of Population Employed in Agricultural Industry",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+The City of Oxnard has a higher percentage of its total population working in the agricultural industry than most of Ventura County, save for the unincorporated rural agricultural community of Somis. Because of this, it is likely that Oxnard is uniquely suseptible to environmental hazards, as farmworkers tend to have greater environmental health concerns directly due to the environments in which they live and work. 
+
+To quantify this hypothesis, we look at enviornmental and socioeconomic data.
+
+
+```{r Fig2, echo=FALSE, fig.cap='TITLE HEREEEEEEEEEEE'}
+
+ggplot(merge_data, aes(x=reorder(city, ozone, median, na.rm=TRUE),
+                       y=ozone))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="Ozone",
+       title="Title",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='TITLE HERE'}
+ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
+                       y=pm_2.5))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="pm_2.5",
+       title="title",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, diesel_pm, median, na.rm=TRUE),
+                       y=diesel_pm))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="diesel pm",
+       title="title",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
+                       y=drinking_water))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="drinking_water",
+       title="drinking_water",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
+                       y=pesticides))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="pesticides",
+       title="pesticides",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, tox_release, median, na.rm=TRUE),
+                       y=tox_release))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="tox_release",
+       title="tox",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, traffic, median, na.rm=TRUE),
+                       y=traffic))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="traffic",
+       title="traffic",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, pol_burden, median, na.rm=TRUE),
+                       y=pol_burden))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="pollution burden",
+       title="pollution burden",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, imp_water, median, na.rm=TRUE),
+                       y=imp_water))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="imp_water",
+       title="impure water",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, asthma, median, na.rm=TRUE),
+                       y=asthma))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="asthma",
+       title="asthma",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, low_birth, median, na.rm=TRUE),
+                       y=low_birth))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="low_birth",
+       title="birth",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, card_disease, median, na.rm=TRUE),
+                       y=card_disease))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="card_disease",
+       title="card disease",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, education, median, na.rm=TRUE),
+                       y=education))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="education",
+       title="education",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, ling_isolation, median, na.rm=TRUE),
+                       y=ling_isolation))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="ling_isolation",
+       title="linguistic isolation",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, poverty, median, na.rm=TRUE),
+                       y=poverty))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="poverty",
+       title="poverty",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, unemploy, median, na.rm=TRUE),
+                       y=unemploy))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="unemploy",
+       title="unemploy",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, housing_burden, median, na.rm=TRUE),
+                       y=housing_burden))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="housing_burden",
+       title="housing burden",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
+
+
+```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+ggplot(merge_data, aes(x=reorder(city, pop_char, median, na.rm=TRUE),
+                       y=pop_char))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  theme_bw()+
+  labs(x="City in Ventura County",
+       y="pop_char",
+       title="pop_char",
+       caption="CES and Social Explorer Data")+
+  coord_flip()
+```
