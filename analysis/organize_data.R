@@ -39,7 +39,8 @@ new_ces <- ces_data %>%
   select(`Census Tract`, `Total Population`, `California County`, `CES 3.0 Score`, `Ozone`, `PM2.5`, `Diesel PM`,
          `Drinking Water`, `Pesticides`, `Tox. Release`, `Traffic`, `Pollution Burden`, `Pollution Burden Score`, 
          `Imp. Water Bodies`, `Asthma`, `Low Birth Weight`, `Cardiovascular Disease`, `Education`,
-         `Linguistic Isolation`, `Poverty`, `Unemployment`, `Housing Burden`, `Pop. Char.`, `Pop. Char. Score`)
+         `Linguistic Isolation`, `Poverty`, `Unemployment`, `Housing Burden`, `Pop. Char.`, `Pop. Char. Score`, 
+         `Nearby City`)
 
 new_ces <- new_ces %>% 
   rename(`census_tract` = `Census Tract`,
@@ -65,7 +66,8 @@ new_ces <- new_ces %>%
          `unemploy` = `Unemployment`, 
          `housing_burden` = `Housing Burden`, 
          `pop_char` = `Pop. Char.`, 
-         `pop_char_score` = `Pop. Char. Score`)
+         `pop_char_score` = `Pop. Char. Score`,
+         `city` = `Nearby City`)
 
 colnames(new_ces)
 colnames(se_data)
@@ -88,8 +90,18 @@ merge_data <- merge(merge_ces, new_se, by="census_tract", all.x=TRUE, all.y=FALS
 merge_data$ag_pct <- (merge_data$ag_employ/merge_data$tot_employ)*100
 colnames(merge_data)
 
+#selecting only cities within ventura
+merge_data <- filter(merge_data, county %in%
+                          c("Ventura"))
 
 
-#save full merge data in output directory
-save(merge_ces, file="output/merge_data.RData")
+ggplot(merge_data, aes(x=reorder(city, ces_score, median, na.rm=TRUE),
+                        y=ces_score))+
+  geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
+  labs(x="Farmworker Community in California", 
+       y="CES 3.0 Score", 
+       title="CES 3.0 Score by Farmworker Community in California",
+       fill="test")+
+  theme_bw()+
+  coord_flip()
 
