@@ -93,8 +93,13 @@ colnames(merge_data)
 #selecting only cities within ventura
 merge_data <- filter(merge_data, county %in%
                           c("Ventura"))
+merge_data <- subset(merge_data, merge_data$total_pop>70)
 
 
+#save full merge data in output directory
+save(merge_data, file="output/merge_data.RData")
+
+#gotta test
 ggplot(merge_data, aes(x=reorder(city, ces_score, median, na.rm=TRUE),
                         y=ces_score))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
