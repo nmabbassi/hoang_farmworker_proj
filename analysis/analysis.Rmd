@@ -1,13 +1,16 @@
 ---
 title: "Analysis for Project"
-output: 
-  html_document: 
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+  html_document:
     fig_height: 6
     fig_width: 9
     toc: yes
     toc_depth: 4
 ---
-
+#eyo remember to push everything fam
 
 ```{r setup, echo=FALSE, warning=FALSE, error=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -52,12 +55,13 @@ ggplot(merge_data, aes(x=reorder(city, ozone, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="Ozone",
-       title="Title",
-       caption="CES and Social Explorer Data")+
+       y="Mean of summer months(May-Oct)of daily max. 8-hr ozone concentration (ppm), avg. of 2012 to 2014",
+       title="Ozone Concentrations in Ventura County",
+       caption="CES Data")+
   coord_flip()
 ```
 
+Little to no Oxnard data. 
 
 ```{r Fig1, echo=FALSE, fig.cap='TITLE HERE'}
 ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
@@ -65,12 +69,13 @@ ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="pm_2.5",
-       title="title",
+       y="Annual mean concentration of PM2.5 (avg of quarterly means, μg/m3), 2012 to 2014",
+       title="PM 2.5 Levels in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
 
+Similar levels among most of VC.
 
 ```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
 ggplot(merge_data, aes(x=reorder(city, diesel_pm, median, na.rm=TRUE),
@@ -78,12 +83,13 @@ ggplot(merge_data, aes(x=reorder(city, diesel_pm, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="diesel pm",
-       title="title",
-       caption="CES and Social Explorer Data")+
+       y="Dist. of diesel PM emissions for a 2012 summer day in July (kg/day).",
+       title="Diesel PM Rates in Ventura County",
+       caption="Data from CalEnviroScreen")+
   coord_flip()
 ```
 
+Particulate matter (PM) from diesel can have a number of various sources, including both on and off road, which can include traffic from freeways, roads, and ports, where communities with higher traffic subsequently have higher PM rates. Exposure to higher rates of diesel particulate matter can have adverse effects on health, including cardiovascular risks. [CITE]
 
 ```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
 ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
@@ -91,12 +97,13 @@ ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="drinking_water",
-       title="drinking_water",
+       y="Drinking water contaminant index for selected contaminants",
+       title="Drinking water contaminants in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
 
+No significant Oxnard data. 
 
 ```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
 ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
@@ -104,8 +111,8 @@ ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="pesticides",
-       title="pesticides",
+       y="Total lbs of pesticide ingredients used in production-agriculture per square mile, 2012 to 2014.",
+       title="Pesticide Use in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
@@ -117,8 +124,8 @@ ggplot(merge_data, aes(x=reorder(city, tox_release, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="tox_release",
-       title="tox",
+       y="Toxic concentrations of chemical releases to air, 2011 to 2013.",
+       title="Toxic release from facility emissions and off-site incineration",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
@@ -130,8 +137,8 @@ ggplot(merge_data, aes(x=reorder(city, traffic, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="traffic",
-       title="traffic",
+       y="Sum of traffic volumes divided by total road length within 150 meters of the census tract boundary, 2013",
+       title="Traffic Density in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
@@ -205,11 +212,13 @@ ggplot(merge_data, aes(x=reorder(city, education, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="education",
-       title="education",
-       caption="CES and Social Explorer Data")+
+       y="% of population over 25 with less than high school education (5-year estimate, 2011-2015)",
+       title="Educational Attainment in Ventura County",
+       caption="CalEnviroScreen Data")+
   coord_flip()
 ```
+
+Educational attainment not only has a prominant effect on socioeconomic status, but can also be an indicator of community health. Studies suggest that greater educational attainment can be linked to overall health in a community. [CITE] From data estimates from 2011-2015, we find that communities within Oxnard tend to have a greater range of educational attainment, yet the average rate of those without a high school education is higher than the averages for other cities within the county. 
 
 
 ```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
@@ -218,11 +227,14 @@ ggplot(merge_data, aes(x=reorder(city, ling_isolation, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="ling_isolation",
-       title="linguistic isolation",
+       y="Percent limited English-speaking Households, (2011-2015)",
+       title="Linguistic Isolation in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
+#check the dates for this because the pdf might be outdated? if that's the case you also gotta change
+#the social explorer data to match the correct years probably 
 ```
+
 
 
 ```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
