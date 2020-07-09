@@ -1,16 +1,16 @@
 ---
 title: "Analysis for Project"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '4'
   html_document:
     fig_height: 6
     fig_width: 9
     toc: yes
     toc_depth: 4
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
 ---
-#eyo remember to push everything fam
+
 
 ```{r setup, echo=FALSE, warning=FALSE, error=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -48,7 +48,7 @@ The City of Oxnard has a higher percentage of its total population working in th
 To quantify this hypothesis, we look at enviornmental and socioeconomic data.
 
 
-```{r Fig2, echo=FALSE, fig.cap='TITLE HEREEEEEEEEEEE'}
+```{r Fig2, echo=FALSE, fig.cap='title here'}
 
 ggplot(merge_data, aes(x=reorder(city, ozone, median, na.rm=TRUE),
                        y=ozone))+
@@ -63,7 +63,7 @@ ggplot(merge_data, aes(x=reorder(city, ozone, median, na.rm=TRUE),
 
 Little to no Oxnard data. 
 
-```{r Fig1, echo=FALSE, fig.cap='TITLE HERE'}
+```{r Fig3, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
                        y=pm_2.5))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -77,7 +77,7 @@ ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
 
 Similar levels among most of VC.
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig4, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, diesel_pm, median, na.rm=TRUE),
                        y=diesel_pm))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -91,7 +91,7 @@ ggplot(merge_data, aes(x=reorder(city, diesel_pm, median, na.rm=TRUE),
 
 Particulate matter (PM) from diesel can have a number of various sources, including both on and off road, which can include traffic from freeways, roads, and ports, where communities with higher traffic subsequently have higher PM rates. Exposure to higher rates of diesel particulate matter can have adverse effects on health, including cardiovascular risks. [CITE]
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig5, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
                        y=drinking_water))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -105,7 +105,7 @@ ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
 
 No significant Oxnard data. 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig6, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
                        y=pesticides))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -117,8 +117,9 @@ ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
   coord_flip()
 ```
 
+Some significant Ox data w many outliers.
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig7, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, tox_release, median, na.rm=TRUE),
                        y=tox_release))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -130,8 +131,9 @@ ggplot(merge_data, aes(x=reorder(city, tox_release, median, na.rm=TRUE),
   coord_flip()
 ```
 
+No sig. Ox data.
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig8, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, traffic, median, na.rm=TRUE),
                        y=traffic))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -144,7 +146,8 @@ ggplot(merge_data, aes(x=reorder(city, traffic, median, na.rm=TRUE),
 ```
 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+
+```{r Fig9, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pol_burden, median, na.rm=TRUE),
                        y=pol_burden))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -156,7 +159,9 @@ ggplot(merge_data, aes(x=reorder(city, pol_burden, median, na.rm=TRUE),
   coord_flip()
 ```
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+
+
+```{r Fig10, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, imp_water, median, na.rm=TRUE),
                        y=imp_water))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -169,7 +174,8 @@ ggplot(merge_data, aes(x=reorder(city, imp_water, median, na.rm=TRUE),
 ```
 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+
+```{r Fig11, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, asthma, median, na.rm=TRUE),
                        y=asthma))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -182,7 +188,8 @@ ggplot(merge_data, aes(x=reorder(city, asthma, median, na.rm=TRUE),
 ```
 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+
+```{r Fig12, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, low_birth, median, na.rm=TRUE),
                        y=low_birth))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -194,7 +201,7 @@ ggplot(merge_data, aes(x=reorder(city, low_birth, median, na.rm=TRUE),
   coord_flip()
 ```
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig13, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, card_disease, median, na.rm=TRUE),
                        y=card_disease))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -206,7 +213,7 @@ ggplot(merge_data, aes(x=reorder(city, card_disease, median, na.rm=TRUE),
   coord_flip()
 ```
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig14, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, education, median, na.rm=TRUE),
                        y=education))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -221,7 +228,7 @@ ggplot(merge_data, aes(x=reorder(city, education, median, na.rm=TRUE),
 Educational attainment not only has a prominant effect on socioeconomic status, but can also be an indicator of community health. Studies suggest that greater educational attainment can be linked to overall health in a community. [CITE] From data estimates from 2011-2015, we find that communities within Oxnard tend to have a greater range of educational attainment, yet the average rate of those without a high school education is higher than the averages for other cities within the county. 
 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig15, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, ling_isolation, median, na.rm=TRUE),
                        y=ling_isolation))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -237,7 +244,7 @@ ggplot(merge_data, aes(x=reorder(city, ling_isolation, median, na.rm=TRUE),
 
 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig16, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, poverty, median, na.rm=TRUE),
                        y=poverty))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -251,7 +258,7 @@ ggplot(merge_data, aes(x=reorder(city, poverty, median, na.rm=TRUE),
 
 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig17, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, unemploy, median, na.rm=TRUE),
                        y=unemploy))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -263,7 +270,7 @@ ggplot(merge_data, aes(x=reorder(city, unemploy, median, na.rm=TRUE),
   coord_flip()
 ```
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig18, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, housing_burden, median, na.rm=TRUE),
                        y=housing_burden))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
@@ -276,7 +283,7 @@ ggplot(merge_data, aes(x=reorder(city, housing_burden, median, na.rm=TRUE),
 ```
 
 
-```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
+```{r Fig19, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pop_char, median, na.rm=TRUE),
                        y=pop_char))+
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
