@@ -61,7 +61,8 @@ ggplot(merge_data, aes(x=reorder(city, ozone, median, na.rm=TRUE),
   coord_flip()
 ```
 
-Little to no Oxnard data. 
+Ozone pollution causes numerous adverse health effects, including respiratory irritation and exacerbation of lung disease. The health impacts of ozone and other criteria air pollutants (particulate matter (PM), nitrogen dioxide, carbon monoxide, sulfur dioxide, and lead) have been considered in the development of health-based standards. Of the six criteria air pollutants, ozone and particle pollution pose the most widespread and significant health threats. The California Air Resources Board maintains a wide network of air monitoring stations that provides information that may be used to better understand exposures to ozone and other pollutants across the state.
+
 
 ```{r Fig3, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
@@ -75,7 +76,7 @@ ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
   coord_flip()
 ```
 
-Similar levels among most of VC.
+Particulate matter pollution, and fine particle (PM2.5) pollution in particular, has been shown to cause numerous adverse health effects, including heart and lung disease. PM2.5 contributes to substantial mortality across California. The health impacts of PM2.5 and other criteria air pollutants (ozone, nitrogen dioxide, carbon monoxide, sulfur dioxide, and lead) have been considered in the development of health-based standards. Of the six criteria air pollutants, particle pollution and ozone pose the most widespread and significant health threats. The California Air Resources Board maintains a wide network of air monitoring stations that provides information that may be used to better understand exposures to PM2.5 and other pollutants across the state.
 
 ```{r Fig4, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, diesel_pm, median, na.rm=TRUE),
@@ -102,8 +103,7 @@ ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
-
-No significant Oxnard data. 
+Low income and rural communities, particularly those served by small community water systems, can be disproportionately exposed to contaminants in their drinking water (VanDerslice, 2011; Balazs et al., 2011). 
 
 ```{r Fig6, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
@@ -117,7 +117,7 @@ ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
   coord_flip()
 ```
 
-Some significant Ox data w many outliers.
+Communities near agricultural fields, primarily farm worker communities, may be at risk for exposure to pesticides. Drift or volatilization of pesticides from agricultural fields can be a significant source of pesticide exposure. Complete statewide data on human exposures to pesticides do not exist. The most robust pesticide information available statewide are data maintained by the California Department of Pesticide Regulation showing where and when pesticides are used across the state. Pesticide use, especially use of volatile chemicals that can easily become airborne, can serve as an indicator of potential exposure. Similarly, unintended environmental damage from the use of pesticides may increase in areas with greater use.
 
 ```{r Fig7, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, tox_release, median, na.rm=TRUE),
@@ -131,7 +131,7 @@ ggplot(merge_data, aes(x=reorder(city, tox_release, median, na.rm=TRUE),
   coord_flip()
 ```
 
-No sig. Ox data.
+There is widespread concern regarding exposures to chemicals that are released from industrial facilities. Statewide information directly measuring exposures to toxic releases has not been identified. However, some data on the release of pollutants into the environment is available and may provide some relevant evidence for potential subsequent exposures. The US Environmental Protection Agency (US EPA) maintains a toxic substance inventory of on-site releases to air, water, and land and underground injection of any classified chemical, as well as quantities transferred off-site. The data are reported by each facility. US EPA has a computer-based screening tool called Risk Screening Environmental Indicators (RSEI) that analyzes these releases and models potential toxic exposures.
 
 ```{r Fig8, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, traffic, median, na.rm=TRUE),
@@ -145,7 +145,7 @@ ggplot(merge_data, aes(x=reorder(city, traffic, median, na.rm=TRUE),
   coord_flip()
 ```
 
-
+While California has the strictest auto emissions standards in the US, the state is also known for its freeways and heavy traffic. Traffic is a significant source of air pollution, particularly in urban areas, where more than 50% of particulate emissions come from traffic. Exhaust from vehicles contains a large number of toxic chemicals, including nitrogen oxides, carbon monoxide, and benzene. Traffic exhaust also plays a role in the formation of photochemical smog. Health effects of concern from these pollutants include heart and lung disease, cancer, and increased mortality.
 
 ```{r Fig9, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pol_burden, median, na.rm=TRUE),
@@ -167,13 +167,13 @@ ggplot(merge_data, aes(x=reorder(city, imp_water, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="imp_water",
-       title="impure water",
+       y="Summed number of pollutants across water bodies designated as impaired within the area, 2012.",
+       title="Impaired water bodies in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
 
-
+Contamination of California streams, rivers, and lakes by pollutants can compromise the use of the water body for drinking, swimming, fishing, aquatic life protection, and other beneficial uses. When this occurs, such bodies are considered “impaired.” Information on impairments to these water bodies can help determine the extent of environmental degradation within an area.
 
 ```{r Fig11, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, asthma, median, na.rm=TRUE),
@@ -187,7 +187,7 @@ ggplot(merge_data, aes(x=reorder(city, asthma, median, na.rm=TRUE),
   coord_flip()
 ```
 
-
+Asthma is a chronic lung disease characterized by episodic breathlessness, wheezing, coughing, and chest tightness. While the causes of asthma are poorly understood, it is well established that exposure to traffic and outdoor air pollutants, including particulate matter, ozone, and diesel exhaust, can trigger asthma attacks. Nearly three million Californians currently have asthma and about five million have had it at some point in their lives. Children, the elderly and low-income Californians suffer disproportionately from asthma (California Health Interview Survey, 2009). Although well-controlled asthma can be managed as a chronic disease, asthma can be a life-threatening condition, and emergency department visits for asthma are a very serious outcome, both for patients and for the medical system.
 
 ```{r Fig12, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, low_birth, median, na.rm=TRUE),
@@ -195,11 +195,13 @@ ggplot(merge_data, aes(x=reorder(city, low_birth, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="low_birth",
-       title="birth",
+       y="Percent low birth weight, (averaged over 2006-2012).",
+       title="Low birth rates in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
+
+Infants born weighing less than 2,500 grams (about 5.5 pounds) are classified as low birth weight (LBW), a condition that is associated with increased risk of later health problems as well as infant mortality. Most LBW infants are small because they were born early. Infants born at full term (after 37 complete weeks of pregnancy) can also be LBW if their growth was restricted during pregnancy. Nutritional status, lack of prenatal care, stress, and maternal smoking are known risk factors for LBW. Studies also suggest links with environmental exposures to lead, air pollution, toxic air contaminants, traffic pollution, pesticides, and polychlorinated biphenyls (PCBs). These children are at risk for chronic health conditions that may make them more sensitive to environmental exposures after birth.
 
 ```{r Fig13, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, card_disease, median, na.rm=TRUE),
@@ -207,11 +209,14 @@ ggplot(merge_data, aes(x=reorder(city, card_disease, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="card_disease",
-       title="card disease",
+       y="Spatially modeled, age-adjusted rate of emergency department visits for AMI per 10,000 (averaged over 2011-2013).",
+       title="Cardiovascular disease in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
+
+Cardiovascular disease (CVD) refers to conditions that involve blocked or narrowed blood vessels that can lead to a heart attack or other heart problems. CVD is the leading cause of death both in California and the United States. Acute myocardial infarction (AMI), commonly known as a heart attack, is the most common cardiovascular event. Although many people survive and return to normal life after a heart attack, quality of life and long term survival may be reduced, and these people are highly vulnerable to future cardiovascular events.
+
 
 ```{r Fig14, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, education, median, na.rm=TRUE),
@@ -236,13 +241,13 @@ ggplot(merge_data, aes(x=reorder(city, ling_isolation, median, na.rm=TRUE),
   labs(x="City in Ventura County",
        y="Percent limited English-speaking Households, (2011-2015)",
        title="Linguistic Isolation in Ventura County",
-       caption="CES and Social Explorer Data")+
+       caption="CES Data")+
   coord_flip()
 #check the dates for this because the pdf might be outdated? if that's the case you also gotta change
 #the social explorer data to match the correct years probably 
 ```
 
-
+According to the most recent US Census Bureau’s 2010-2014 American Community Survey (ACS), nearly 43% of Californians speak a language at home other than English, about 20% of the state’s population speaks English “not well” or “not at all,” and 10% of all households in California are linguistically isolated. The US Census Bureau uses the term “linguistic isolation” to measure households where all members 14 years of age or above have at least some difficulty speaking English. A high degree of linguistic isolation among members of a community raises concerns about access to health information and public services, and effective engagement with regulatory processes. Information on language use is collected annually in the ACS. In contrast to the decennial census, the ACS surveys a small sample of the US population to estimate more detailed economic and social information for the country’s population.
 
 ```{r Fig16, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, poverty, median, na.rm=TRUE),
@@ -250,12 +255,13 @@ ggplot(merge_data, aes(x=reorder(city, poverty, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="poverty",
-       title="poverty",
-       caption="CES and Social Explorer Data")+
+       y="% population living below two times the federal poverty level (5-year estimate, 2011-2015)",
+       title="Poverty Rates in Ventura County",
+       caption="CES Data")+
   coord_flip()
 ```
 
+Poverty is an important social determinant of health. Numerous studies have suggested that impoverished populations are more likely than wealthier populations to experience adverse health outcomes when exposed to environmental pollution. Information on poverty is collected annually in the US Census Bureau’s American Community Survey (ACS). In contrast to the decennial census, the ACS surveys a small sample of the US population to estimate more detailed economic and social information for the country’s population.
 
 
 ```{r Fig17, echo=FALSE, fig.cap='none'}
@@ -264,11 +270,13 @@ ggplot(merge_data, aes(x=reorder(city, unemploy, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="unemploy",
-       title="unemploy",
+       y="% population over 16 that is unemployed, 2011-2015",
+       title="Unemployment rates in Ventura County",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
+
+Because low socioeconomic status often goes hand-in-hand with high unemployment, the rate of unemployment is a factor commonly used in describing disadvantaged communities. On an individual level, unemployment is a source of stress, which is implicated in poor health reported by residents of such communities. Lack of employment and resulting low income often oblige people to live in neighborhoods with higher levels of pollution and environmental degradation.
 
 ```{r Fig18, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, housing_burden, median, na.rm=TRUE),
@@ -276,12 +284,13 @@ ggplot(merge_data, aes(x=reorder(city, housing_burden, median, na.rm=TRUE),
   geom_boxplot(fill="cornflowerblue", outlier.color = "tan2")+
   theme_bw()+
   labs(x="City in Ventura County",
-       y="housing_burden",
-       title="housing burden",
+       y="% of households in a census tract that are low income, 2009-2013.",
+       title="Housing Burdened Low Income Households in VC",
        caption="CES and Social Explorer Data")+
   coord_flip()
 ```
 
+The cost and availability of housing is an important determinant of well-being. Households with lower incomes may spend a larger proportion of their income on housing. The inability of households to afford necessary non-housing goods after paying for shelter is known as housing-induced poverty. California has very high housing costs relative to much of the country, making it difficult for many to afford adequate housing. Within California, the cost of living varies significantly and is largely dependent on housing cost, availability, and demand.
 
 ```{r Fig19, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pop_char, median, na.rm=TRUE),
