@@ -87,7 +87,7 @@ ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
        y="Annual mean concentration of PM2.5 (μg/m3),
 average of quarterly means from 2012 to 2014",
        title="PM 2.5 Levels in Ventura County by City",
-       caption="CES and Social Explorer Data")+
+       caption="Data from CalEnviroScreen")+
   theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
   theme(plot.caption=element_text(size=6))+
