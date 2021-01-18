@@ -37,14 +37,16 @@ Use this R Markdown to perform the main analysis for the project. I use this bas
 ```{r Fig1, echo=FALSE, fig.cap='Barplot showing percent of people employed in the agricultural industry in California Counties'}
 ggplot(merge_data, aes(x=reorder(city, ag_pct, median, na.rm=TRUE),
                        y=ag_pct))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+      
   labs(x="Name of City in Ventura County",
        y="Percent of Population Employed in Agricultural Industry",
        title="Percentage of Ventura County Residents Employed in the Agricultural Industry by City",
-       caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=10))+
-  theme(plot.title=element_text(size=10))+
+       caption="Data from CalEnviroScreen and Social Explorer")+
+    theme(axis.title=element_text(size=10))+
+    theme(plot.title=element_text(size=10))+
+    theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -57,14 +59,17 @@ To quantify this hypothesis, we look at enviornmental and socioeconomic data.
 
 ggplot(merge_data, aes(x=reorder(city, ozone, median, na.rm=TRUE),
                        y=ozone))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Mean of summer months (May-Oct) of daily max. 8-hr ozone concentration (ppm), avgerage from 2012 to 2014",
+       y="Mean of summer months (May-Oct) of daily max. 
+8-hr ozone concentration (ppm), average from 2012 to 2014",
        title="Ozone Concentration in Ventura County by City",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=8))+
-  theme(plot.title=element_text(size=10))+
+    theme(axis.title=element_text(size=10))+
+    theme(plot.title=element_text(size=10))+
+    theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -74,14 +79,18 @@ Ozone pollution causes numerous adverse health effects, including respiratory ir
 ```{r Fig3, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pm_2.5, median, na.rm=TRUE),
                        y=pm_2.5))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
+  
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Annual mean concentration of PM2.5 (avg of quarterly means, μg/m3) from 2012 to 2014",
+       y="Annual mean concentration of PM2.5 (μg/m3),
+average of quarterly means from 2012 to 2014",
        title="PM 2.5 Levels in Ventura County by City",
        caption="CES and Social Explorer Data")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -90,14 +99,17 @@ Particulate matter pollution, and fine particle (PM2.5) pollution in particular,
 ```{r Fig4, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, diesel_pm, median, na.rm=TRUE),
                        y=diesel_pm))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Dist. of diesel PM emissions for a 2012 summer day in July (kg/day).",
+       y="Dist. of diesel PM emissions for a 2012 
+summer day in July (kg/day)",
        title="Diesel PM Rates in Ventura County",
        caption="Data from CalEnviroScreen")+
   theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -106,6 +118,7 @@ Particulate matter (PM) from diesel can have a number of various sources, includ
 ```{r Fig5, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
                        y=drinking_water))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County by City",
@@ -114,6 +127,7 @@ ggplot(merge_data, aes(x=reorder(city, drinking_water, median, na.rm=TRUE),
        caption="Data from CalEnviroScreen")+
     theme(axis.title=element_text(size=10))+
     theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 Low income and rural communities, particularly those served by small community water systems, can be disproportionately exposed to contaminants in their drinking water (VanDerslice, 2011; Balazs et al., 2011). 
@@ -121,14 +135,17 @@ Low income and rural communities, particularly those served by small community w
 ```{r Fig6, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pesticides, median, na.rm=TRUE),
                        y=pesticides))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Total lbs of pesticide ingredients used in production-agriculture per square mile from 2012 to 2014.",
+       y="Total lbs of pesticide ingredients used in
+production-agriculture per square mile from 2012 to 2014",
        title="Pesticide Use in Ventura County by City",
        caption="Data from CalEnviroScreen")+
-    theme(axis.title=element_text(size=9))+
+    theme(axis.title=element_text(size=10))+
     theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -137,14 +154,16 @@ Communities near agricultural fields, primarily farm worker communities, may be 
 ```{r Fig7, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, tox_release, median, na.rm=TRUE),
                        y=tox_release))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
        y="Average toxic concentrations of chemical releases to air from 2011 to 2013.",
        title="Toxic release from facility emissions and off-site incineration by City",
        caption="Data from CalEnviroScreen")+
-    theme(axis.title=element_text(size=9))+
+    theme(axis.title=element_text(size=10))+
     theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -153,14 +172,17 @@ There is widespread concern regarding exposures to chemicals that are released f
 ```{r Fig8, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, traffic, median, na.rm=TRUE),
                        y=traffic))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Sum of traffic volumes divided by total road length within 150 meters of the census tract boundary, 2013",
+       y="Sum of traffic volumes divided by total road length 
+within 150 meters of the census tract boundary from 2013",
        title="Traffic Density in Ventura County by City",
        caption="Data from CalEnviroScreen")+
-    theme(axis.title=element_text(size=9))+
+    theme(axis.title=element_text(size=10))+
     theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -169,14 +191,16 @@ While California has the strictest auto emissions standards in the US, the state
 ```{r Fig9, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pol_burden, median, na.rm=TRUE),
                        y=pol_burden))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
        y="pollution burden",
        title="pollution burden",
        caption="Data from CalEnviroScreen")+
-    theme(axis.title=element_text(size=9))+
+    theme(axis.title=element_text(size=10))+
     theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -185,14 +209,17 @@ ggplot(merge_data, aes(x=reorder(city, pol_burden, median, na.rm=TRUE),
 ```{r Fig10, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, imp_water, median, na.rm=TRUE),
                        y=imp_water))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Summed number of pollutants across water bodies designated as impaired within the area, 2012.",
+       y="Summed number of pollutants across water bodies 
+designated as impaired within the area from 2012",
        title="Impaired water bodies in Ventura County",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -201,14 +228,16 @@ Contamination of California streams, rivers, and lakes by pollutants can comprom
 ```{r Fig11, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, asthma, median, na.rm=TRUE),
                        y=asthma))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
        y="asthma",
        title="asthma",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -217,14 +246,16 @@ Asthma is a chronic lung disease characterized by episodic breathlessness, wheez
 ```{r Fig12, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, low_birth, median, na.rm=TRUE),
                        y=low_birth))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Percent low birth weight, (averaged over 2006-2012).",
+       y="Percent low birth weight, averaged between 2006 and 2012",
        title="Low birth rates in Ventura County",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -233,14 +264,17 @@ Infants born weighing less than 2,500 grams (about 5.5 pounds) are classified as
 ```{r Fig13, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, card_disease, median, na.rm=TRUE),
                        y=card_disease))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Spatially modeled, age-adjusted rate of emergency department visits for AMI per 10,000 (averaged over 2011-2013).",
+       y="Spatially modeled, age-adjusted rate of emergency department visits for
+AMI per 10,000, averaged between 2011 and 2013",
        title="Cardiovascular disease in Ventura County",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=8))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -250,14 +284,17 @@ Cardiovascular disease (CVD) refers to conditions that involve blocked or narrow
 ```{r Fig14, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, education, median, na.rm=TRUE),
                        y=education))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Percent of population over 25 with less than a high school education (5-year estimate, 2011-2015)",
+       y="Percent of population over 25 with less than a high school education, 
+5-year estimate between 2011 and 2015",
        title="Educational Attainment in Ventura County",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -267,14 +304,16 @@ Educational attainment not only has a prominant effect on socioeconomic status, 
 ```{r Fig15, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, ling_isolation, median, na.rm=TRUE),
                        y=ling_isolation))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="Percent of limited English-speaking Households, averaged from 2011 to 2015",
+       y="Percent of limited English-speaking Households, averaged between 2011 and 2015",
        title="Linguistic Isolation in Ventura County",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 #check the dates for this because the pdf might be outdated? if that's the case you also gotta change
 #the social explorer data to match the correct years probably 
@@ -285,14 +324,17 @@ According to the most recent US Census Bureau’s 2010-2014 American Community S
 ```{r Fig16, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, poverty, median, na.rm=TRUE),
                        y=poverty))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County by City",
-       y="Percent of population living below two times the federal poverty level, 5-year estimate from 2011 to 2015",
+       y="Percent of population living below two times the federal poverty level, 
+5-year estimate between 2011 and 2015",
        title="Poverty Rates in Ventura County",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -302,14 +344,17 @@ Poverty is an important social determinant of health. Numerous studies have sugg
 ```{r Fig17, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, unemploy, median, na.rm=TRUE),
                        y=unemploy))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County by City",
-       y="Percent of population over 16 that is unemployed, averaged from values between 2011 and 2015",
+       y="Percent of population over 16 that is unemployed,
+averaged between 2011 and 2015",
        title="Unemployment rates in Ventura County",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -318,14 +363,16 @@ Because low socioeconomic status often goes hand-in-hand with high unemployment,
 ```{r Fig18, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, housing_burden, median, na.rm=TRUE),
                        y=housing_burden))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
-       y="% of households in a census tract that are low income, 2009-2013.",
+       y="Percent of households in a census tract that are low income, between 2009 and 2013",
        title="Housing Burdened Low Income Households in VC",
        caption="Data from CalEnviroScreen")+
-  theme(axis.title=element_text(size=9))+
+  theme(axis.title=element_text(size=10))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
 
@@ -334,6 +381,7 @@ The cost and availability of housing is an important determinant of well-being. 
 ```{r Fig19, echo=FALSE, fig.cap='none'}
 ggplot(merge_data, aes(x=reorder(city, pop_char, median, na.rm=TRUE),
                        y=pop_char))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
   geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
   theme_gray()+
   labs(x="Name of City in Ventura County",
@@ -342,5 +390,6 @@ ggplot(merge_data, aes(x=reorder(city, pop_char, median, na.rm=TRUE),
        caption="Data from CalEnviroScreen")+
   theme(axis.title=element_text(size=9))+
   theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
   coord_flip()
 ```
