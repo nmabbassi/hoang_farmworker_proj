@@ -42,7 +42,7 @@ ggplot(merge_data, aes(x=reorder(city, ag_pct, median, na.rm=TRUE),
   theme_gray()+      
   labs(x="Name of City in Ventura County",
        y="Percent of Population Employed in Agricultural Industry",
-       title="Percentage of Ventura County Residents Employed in the Agricultural Industry by City",
+       title="Ventura County Residents Employed in the Agricultural Industry by City",
        caption="Data from CalEnviroScreen and Social Explorer")+
     theme(axis.title=element_text(size=10))+
     theme(plot.title=element_text(size=10))+
