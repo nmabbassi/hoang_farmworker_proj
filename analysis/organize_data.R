@@ -96,11 +96,15 @@ merge_data <- filter(merge_data, county %in%
 merge_data <- subset(merge_data, merge_data$total_pop>70)
 
 
-#filter by incorporated city in VC
-
 
 #save full merge data in output directory
 save(merge_data, file="output/merge_data.RData")
+
+###################filter by incorporated city in VC FIGURE THIS OUT######################
+    
+merge_data2 <- filter(merge_data, city %in%
+                         c("Camarillo", "Fillmore", "Moorpark", "Ojai", "Oxnard", "Port Hueneme", 
+                            "Santa Paula", "Simi Valley", "Thousand Oaks", "Ventura"))  
 
 #gotta test
 ggplot(merge_data, aes(x=reorder(city, ces_score, median, na.rm=TRUE),
@@ -215,6 +219,101 @@ popso <- sum(merge_somis$tot_employ)
 mean(merge_fillmore$ag_pct)
 mean(merge_santap$ag_pct)
 
+ggplot(merge_data2, aes(x=reorder(city, pesticides, mean, na.rm=TRUE),
+                        y=pesticides))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
+  geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
+  theme_gray()+
+  labs(x="City in Ventura County",
+       y="Total lbs of pesticide ingredients used in
+production-agriculture per square mile from 2012 to 2014",
+       title="Average Pesticide Use by Census Tract",
+       caption="Data from CalEnviroScreen")+
+  theme(axis.title=element_text(size=10))+
+  theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
+  geom_hline(aes(yintercept=mean(pesticides, na.rm=FALSE),
+                 color="Avg pop char"),
+             linetype="dashed",
+             size=.5)+
+  coord_flip()
+
+ggplot(merge_data2, aes(x=reorder(city, asthma, mean, na.rm=TRUE),
+                        y=asthma))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
+  geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
+  theme_gray()+
+  labs(x="City in Ventura County",
+       y="Emergency department visits per 
+10,000 (averaged over 2011-2013).",
+       title="Average Asthma  by Census Tract",
+       caption="Data from CalEnviroScreen")+
+  theme(axis.title=element_text(size=10))+
+  theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
+  geom_hline(aes(yintercept=mean(asthma, na.rm=FALSE),
+                 color="Avg pop char"),
+             linetype="dashed",
+             size=.5)+
+  coord_flip()
+
+ggplot(merge_data2, aes(x=reorder(city, diesel_pm, mean, na.rm=TRUE),
+                        y=diesel_pm))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
+  geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
+  theme_gray()+
+  labs(x="City in Ventura County",
+       y="Select diesel PM emissions (kg/day)",
+       title="Average Diesel PM by Census Tract",
+       caption="Data from CalEnviroScreen")+
+  theme(axis.title=element_text(size=10))+
+  theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
+  geom_hline(aes(yintercept=mean(diesel_pm, na.rm=FALSE),
+                 color="Avg pop char"),
+             linetype="dashed",
+             size=.5)+
+  coord_flip()
+
+
+ggplot(merge_data2, aes(x=reorder(city, pop_char, mean, na.rm=TRUE),
+                        y=pop_char))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
+  geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
+  theme_gray()+
+  labs(x="City in Ventura County",
+       y="Population characteristic percentile, calculated 
+using combined enviornmental and socioeconomic characteristics",
+       title="Average Population Characteristic Score by Census Tract",
+       caption="Data from CalEnviroScreen")+
+  theme(axis.title=element_text(size=9))+
+  theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
+  geom_hline(aes(yintercept=mean(pop_char, na.rm=FALSE),
+                 color="Avg pop char"),
+             linetype="dashed",
+             size=.5)+
+  coord_flip()
+
+
+ggplot(merge_data2, aes(x=reorder(city, pol_burden, mean, na.rm=TRUE),
+                        y=pol_burden))+
+  stat_boxplot(geom='errorbar', width = 0.3)+
+  geom_boxplot(fill="lightsteelblue3", outlier.color = "grey4")+
+  theme_gray()+
+  labs(x="City in Ventura County",
+       y="Pollution burden percentile, calculated 
+  using exposure and environmental effect indicators",
+       title="Average Pollution Burden by Census Tract",
+       caption="Data from CalEnviroScreen")+
+  theme(axis.title=element_text(size=10))+
+  theme(plot.title=element_text(size=10))+
+  theme(plot.caption=element_text(size=6))+
+  geom_hline(aes(yintercept=mean(pol_burden, na.rm=FALSE),
+                 color="Average Pollution Burden"),
+             linetype="dashed",
+             size=.5)+
+  coord_flip()
 
 
 
