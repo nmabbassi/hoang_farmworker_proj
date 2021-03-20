@@ -96,6 +96,9 @@ merge_data <- filter(merge_data, county %in%
 merge_data <- subset(merge_data, merge_data$total_pop>70)
 
 
+#filter by incorporated city in VC
+
+
 #save full merge data in output directory
 save(merge_data, file="output/merge_data.RData")
 
@@ -109,4 +112,109 @@ ggplot(merge_data, aes(x=reorder(city, ces_score, median, na.rm=TRUE),
        fill="test")+
   theme_bw()+
   coord_flip()
+
+#average pop char variable
+merge_ptmugu <- filter(merge_data, city %in%
+                         c("Point Mugu"))
+merge_pthue <- filter(merge_data, city %in%
+                        c("Port Hueneme"))
+merge_simi <- filter(merge_data, city %in%
+                       c("Simi Valley"))
+merge_moorpark <- filter(merge_data, city %in%
+                           c("Moorpark"))
+merge_lebec <- filter(merge_data, city %in%
+                     c("Lebec"))
+merge_westhills <- filter(merge_data, city %in%
+                            c("West Hills"))
+merge_camarillo <- filter(merge_data, city %in%
+                            c("Camarillo"))
+merge_oakview <- filter(merge_data, city %in%
+                          c("Oak View"))
+merge_to <- filter(merge_data, city %in%
+                     c("Thousand Oaks"))
+merge_westlakev <- filter(merge_data, city %in%
+                            c("Westlake Village"))
+merge_ojai <- filter(merge_data, city %in%
+                       c("Ojai"))
+merge_newbury <- filter(merge_data, city %in%
+                          c("Newbury Park"))
+merge_agoura <- filter(merge_data, city %in%
+                         c("Agoura Hills"))
+merge_oakp <- filter(merge_data, city %in%
+                       c("Oak Park"))
+
+merge_fillmore <- filter(merge_data, city %in%
+                            c("Fillmore"))
+
+merge_oxnard <- filter(merge_data, city %in%
+                         c("Oxnard"))
+
+merge_santap <- filter(merge_data, city %in%
+                         c("Santa Paula"))
+merge_somis <- filter(merge_data, city %in%
+                         c("Somis"))
+
+#% total pop in ag
+100*(sum(merge_ptmugu$ag_employ))/(sum(merge_ptmugu$total_pop))
+100*(sum(merge_fillmore$ag_employ))/(sum(merge_fillmore$total_pop))
+100*(sum(merge_pthue$ag_employ))/(sum(merge_pthue$total_pop))
+100*(sum(merge_oxnard$ag_employ))/(sum(merge_oxnard$total_pop))
+100*(sum(merge_santap$ag_employ))/(sum(merge_santap$total_pop))
+100*(sum(merge_somis$ag_employ))/(sum(merge_somis$total_pop))
+100*(sum(merge_ventura$ag_employ))/(sum(merge_ventura$total_pop))
+100*(sum(merge_simi$ag_employ))/(sum(merge_simi$total_pop))
+100*(sum(merge_moorpark$ag_employ))/(sum(merge_moorpark$total_pop))
+100*(sum(merge_lebec$ag_employ))/(sum(merge_lebec$total_pop))
+100*(sum(merge_westhills$ag_employ))/(sum(merge_westhills$total_pop))
+100*(sum(merge_camarillo$ag_employ))/(sum(merge_camarillo$total_pop))
+100*(sum(merge_oakview$ag_employ))/(sum(merge_oakview$total_pop))
+100*(sum(merge_to$ag_employ))/(sum(merge_to$total_pop))
+100*(sum(merge_westlakev$ag_employ))/(sum(merge_westlakev$total_pop))
+100*(sum(merge_ojai$ag_employ))/(sum(merge_ojai$total_pop))
+100*(sum(merge_newbury$ag_employ))/(sum(merge_newbury$total_pop))
+100*(sum(merge_agoura$ag_employ))/(sum(merge_agoura$total_pop))
+100*(sum(merge_oakp$ag_employ))/(sum(merge_oakp$total_pop))
+
+sum(merge_oxnard$pol_burden)
+sum(merge_agoura$pol_burden)
+
+
+merge_ventura <- filter(merge_data, county %in%
+                       c("Ventura"))
+
+
+merge_data$city
+sum(merge_data$total_pop)
+sum(merge_oxnard$total_pop)
+merge_oxnard$ag_pct
+sum(merge_oxnard$ag_employ)
+sum(merge_somis$total_pop)
+
+sum(merge_oxnard$ag_employ)
+sum(merge_santap$ag_employ)
+sum(merge_fillmore$ag_employ)
+
+agox <- sum(merge_oxnard$ag_employ)
+popox <- sum(merge_oxnard$total_pop)
+100*agox/popox
+
+100*(sum(merge_oxnard$ag_employ))/(sum(merge_oxnard$total_pop))
+
+agfl <- sum(merge_fillmore$ag_employ)
+popfl <- sum(merge_fillmore$total_pop)
+100*agfl/popfl
+
+agsp <- sum(merge_santap$ag_employ)
+popsp <- sum(merge_santap$total_pop)
+100*agsp/popsp
+
+agso <- sum(merge_somis$ag_employ)
+popso <- sum(merge_somis$tot_employ)
+100*agso/popso
+
+mean(merge_fillmore$ag_pct)
+mean(merge_santap$ag_pct)
+
+
+
 
